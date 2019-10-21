@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>JS Example</title>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+        <a class="navbar-brand" href="#">Mini Projects</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Basic Calc <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="adv.html">Advance Calc</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="conditions.html">Conditions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="register/course.html">ES6 Example</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="quest.html">Quest <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="display-4">Important Questions</h1>
+        <hr/>
+        
+        <ul class="list-unstyled">
+            <li class="media">
+                <img src="img/jslogo60x60.jpg" class="mr-3" alt="JS">
+                <div class="media-body">
+                    <h5 class="mt-0 mb-1">Data types supported by JavaScript?</h5>
+                    The data types supported by JavaScript are:
+                    <ul>
+                        <li>Undefined</li>
+                        <li>Null</li>
+                        <li>Boolean</li>
+                        <li>String</li>
+                        <li>Symbol</li>
+                        <li>Number</li>
+                        <li>Object</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="media my-4">
+                <img src="img/jslogo60x60.jpg" class="mr-3" alt="JS">
+                <div class="media-body">
+                    <h5 class="mt-0 mb-1">JavaScript is Compiled or Interpreted?</h5>
+                    JavaScript Engines in browser or Node JS interprets JavaScript Code. It is a lightweight, interpreted programming language. Example of JS engine is V8 engine in Chrome. 
+                </div>
+            </li>
+            <li class="media">
+                <img src="img/jslogo60x60.jpg" class="mr-3" alt="JS">
+                <div class="media-body">
+                <h5 class="mt-0 mb-1">Difference between <strong>let</strong> and <strong>const</strong>?</h5>
+                let and const both are ES6 feature of JS. Both have block {} scope. let is used for creating variables whereas const is used for creating constant.
+                <ul>
+                    <li>const can only be assigned once and multiple assignment will result in error.</li>
+                    <li>while declaring const, assigning value to it is mandatory. <pre>const age;</pre> will throw error, we shall assign value to age like <pre>const age = 20;</pre></li>
+                </ul>
+                </div>
+            </li>
+
+            <li class="media">
+                <img src="img/jslogo60x60.jpg" class="mr-3" alt="JS">
+                <div class="media-body">
+                <h5 class="mt-0 mb-1">Difference between <strong>let</strong> and <strong>var</strong>?</h5>
+                let is ES6 feature and sustitute for var. Both are used for declaring variables.
+                <ul>
+                    <li>
+                        var has function scope means 
+                        <pre>
+                                function hello() {
+                                    for(var i = 0; i<=10; i++) {
+                                        console.log("Hi");
+                                    }
+                                
+                                    console.log(i);
+                                }
+                        </pre>
+
+                        Here, although variable <strong>i</strong> is declared inside <strong>for</strong> block using var keyword and it will be available anywhere inside its parent function. So it will be available outside <strong>for</strong> block as well.
+                    </li>
+                    <li>
+                            let has Block scope means 
+                            <pre>
+                                    function hello() {
+                                        for(let i = 0; i<=10; i++) {
+                                            console.log("Hi");
+                                        }
+                                    
+                                        console.log(i);
+                                    }
+                            </pre>
+    
+                            Here, variable <strong>i</strong> is declared inside <strong>for</strong> block using let keyword and it will be available only inside <strong>for</strong> block. i.e. last line <strong>console.log(i)</strong> will result in error;
+                    </li>
+                </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+    <script>
+      function calculate() {
+        var inp1 = document.getElementById('input1').value;
+        var inp2 = document.getElementById('input2').value;
+        var op = document.getElementById('operator').value;
+        
+        if(op === '+') {
+          var result = parseInt(inp1) + parseInt(inp2);
+        }
+        if(op === '-') {
+          var result = parseInt(inp1) - parseInt(inp2);
+        }
+        if(op === '*') {
+          var result = parseInt(inp1) * parseInt(inp2);
+        }
+        
+        //display result on console
+        console.log('result: '+result);
+
+        //now assign value of result to readonly reult input box
+        document.getElementById('result').value = result;
+      }
+      
+
+      //document.getElementById('input1');
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
