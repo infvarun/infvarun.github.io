@@ -60,6 +60,7 @@
                     </ul>
                 </div>
             </li>
+            <hr/>
             <li class="media my-4">
                 <img src="img/jslogo60x60.jpg" class="mr-3" alt="JS">
                 <div class="media-body">
@@ -67,6 +68,7 @@
                     JavaScript Engines in browser or Node JS interprets JavaScript Code. It is a lightweight, interpreted programming language. Example of JS engine is V8 engine in Chrome. 
                 </div>
             </li>
+            <hr/>
             <li class="media">
                 <img src="img/jslogo60x60.jpg" class="mr-3" alt="JS">
                 <div class="media-body">
@@ -78,7 +80,7 @@
                 </ul>
                 </div>
             </li>
-
+            <hr/>
             <li class="media">
                 <img src="img/jslogo60x60.jpg" class="mr-3" alt="JS">
                 <div class="media-body">
@@ -116,7 +118,7 @@
                     </ul>
                 </div>
             </li>
-
+            <hr/>
             <li class="media">
                 <img src="img/jslogo60x60.jpg" class="mr-3" alt="JS">
                 <div class="media-body">
@@ -141,6 +143,73 @@
                         console.log(studentObj.city); // alternate
 
                     </pre>
+                </div>
+            </li>
+
+            <li class="media">
+                <img src="img/jslogo60x60.jpg" class="mr-3" alt="JS">
+                <div class="media-body">
+                    <h5 class="mt-0 mb-1">What is array?</h5>
+                    Array is consecutive collection of variables(known as elements) with index assigned to each element of array. Index starts from 0.
+                    <pre>
+                        // declare array
+                        let studentMarks = [20, 30, 70, 90];
+                        
+                        // another way
+                        let studentDetails = new Array();
+                        studentDetails.push('John');
+                        studentDetails.push('India');
+
+                        // access array
+                        alert(studentDetails[0]);
+                    </pre>
+                </div>
+            </li>
+
+            <hr>
+            <li class="media">
+                <img src="img/jslogo60x60.jpg" class="mr-3" alt="JS">
+                <div class="media-body">
+                    <h5 class="mt-0 mb-1">What are Higher Order Function in JS?</h5>
+                    <p>
+                        Higher-order functions are functions that take other functions as arguments or return functions as their results.
+                    </p>
+                    <p>
+                        Taking an other function as an argument is often referred as a callback function, because it is called back by the higher-order function. This is a concept that Javascript uses a lot.
+                    </p>
+                    <p>
+                        For example, the map function on arrays is a higher order function. The map function takes a function as an argument.
+                    </p>
+                    <p>
+                        map, sort, reduce, filter, forEach are examples of higher-order functions built into the language.
+                    </p>
+
+
+                </div>
+            </li>
+
+            <hr>
+            <li class="media">
+                <img src="img/jslogo60x60.jpg" class="mr-3" alt="JS">
+                <div class="media-body">
+                    <h5 class="mt-0 mb-1">How to iterate over an array using forEach?</h5>
+                    Iterating through collection or array means traversing through each element of array and getting value at each step.
+                    <pre>
+                        studentDetails.forEach((value, index, array)=>{
+                            console.log(value);
+                        });
+                    </pre>
+                    <ul>
+                        <li>forEach is inbuilt method introduced in ES6</li>
+                        <li>Its an Higher Order Function</li>
+                        <li>It accepts another function as parameter known as Callback function, because its called back by higher order function</li>
+                        <li>Callback function of forEach accepts 3 parameters</li>
+                        <li>As I said callback function is called by Higher order function i.e. by forEach method so parameter to callback function will be passed by forEach method.</li>
+                        <li>forEach passes 3 parameters i.e.</li>
+                        <li>value - Value of element at current index</li>
+                        <li>index - Value of Index at current iteration</li>
+                        <li>array - current state of array.</li>
+                    </ul>
                 </div>
             </li>
         </ul>
