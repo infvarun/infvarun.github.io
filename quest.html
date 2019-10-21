@@ -82,38 +82,65 @@
             <li class="media">
                 <img src="img/jslogo60x60.jpg" class="mr-3" alt="JS">
                 <div class="media-body">
-                <h5 class="mt-0 mb-1">Difference between <strong>let</strong> and <strong>var</strong>?</h5>
-                let is ES6 feature and sustitute for var. Both are used for declaring variables.
-                <ul>
-                    <li>
-                        var has function scope means 
-                        <pre>
-                                function hello() {
-                                    for(var i = 0; i<=10; i++) {
-                                        console.log("Hi");
-                                    }
-                                
-                                    console.log(i);
+                    <h5 class="mt-0 mb-1">Difference between <strong>let</strong> and <strong>var</strong>?</h5>
+                    let is ES6 feature and sustitute for var. Both are used for declaring variables.
+                    <ul>
+                        <li>
+                            var has function scope means 
+                            <pre>
+                            function hello() {
+                                for(var i = 0; i<=10; i++) {
+                                    console.log("Hi");
                                 }
-                        </pre>
+                            
+                                console.log(i);
+                            }
+                            </pre>
 
-                        Here, although variable <strong>i</strong> is declared inside <strong>for</strong> block using var keyword and it will be available anywhere inside its parent function. So it will be available outside <strong>for</strong> block as well.
-                    </li>
-                    <li>
+                            Here, although variable <strong>i</strong> is declared inside <strong>for</strong> block using var keyword and it will be available anywhere inside its parent function. So it will be available outside <strong>for</strong> block as well.
+                        </li>
+                        <li>
                             let has Block scope means 
                             <pre>
-                                    function hello() {
-                                        for(let i = 0; i<=10; i++) {
-                                            console.log("Hi");
-                                        }
-                                    
-                                        console.log(i);
-                                    }
+                            function hello() {
+                                for(let i = 0; i<=10; i++) {
+                                    console.log("Hi");
+                                }
+                            
+                                console.log(i);
+                            }
                             </pre>
-    
+
                             Here, variable <strong>i</strong> is declared inside <strong>for</strong> block using let keyword and it will be available only inside <strong>for</strong> block. i.e. last line <strong>console.log(i)</strong> will result in error;
-                    </li>
-                </ul>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="media">
+                <img src="img/jslogo60x60.jpg" class="mr-3" alt="JS">
+                <div class="media-body">
+                    <h5 class="mt-0 mb-1">Is JavaScript Object Oriented language?</h5>
+                    Not exactly. JavaScript is actually Object based language. We can create Object, we can use object but we cannot create Classes like Object Oriented language. Means we cannot actually create blueprints for creating object.
+                    <pre>
+                        // to create object
+                        let studentObj = {
+                            name : 'John',
+                            age : 20,
+                            passed : true;
+                        };
+
+                        // to change property value
+                        studentObj.name = 'Johnny';
+
+                        //add new property
+                        studentObj.city = 'Bangalore';
+
+                        // access property
+                        console.log(studentObj['age']);
+                        console.log(studentObj.city); // alternate
+
+                    </pre>
                 </div>
             </li>
         </ul>
