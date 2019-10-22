@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link href="https://unpkg.com/placeholder-loading/dist/css/placeholder-loading.min.css" rel="stylesheet">
+
+    <title>JS Example</title>
+
+  </head>
+  <body>
+
+  <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+      <a class="navbar-brand" href="#">Mini Projects</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Basic Calc <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="adv.html">Advance Calc</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="conditions.html">Conditions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="register/course.html">ES6 Example</a>
+          </li>
+        </ul>
+        <span class="navbar-text">
+          Varun Ved
+        </span>
+      </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="display-4">JavaScript Quiz - 101</h1>
+        <div class="card text-center">
+          <div class="card-header" id="questnum">
+            Question 1
+          </div>
+          <div class="card-body">
+            <div class="ph-item">     
+              <div class="ph-col-12">
+                <div class="ph-picture"></div>
+                <div class="ph-row">
+                  <div class="ph-col-10 big"></div>
+                  <div class="ph-col-10 big"></div>
+                  <div class="ph-col-10 big"></div>
+                  <div class="ph-col-10 big"></div>
+                </div>
+              </div>
+            </div>
+            <h5 style="text-align: left;" class="no-ph-item card-title" id="question">Special title treatment</h5>
+            <hr>
+            <div style="text-align: left;" id="options" class="no-ph-item">
+              <input type="button" class="btn btn-warning" id="option1" value="Some option for answer">
+              <hr>
+              <input type="button" class="btn btn-warning" id="option2" value="Some option for answer">
+              <hr>
+              <input type="button" class="btn btn-warning" id="option3" value="Some option for answer">
+              <hr>
+              <input type="button" class="btn btn-warning" id="option4" value="Some option for answer">
+            </div>
+
+            <div class="correct card text-white bg-success mb-3" style="max-width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Correct</h5>
+                <p class="card-text"><img src="img/tick.webp"></p>
+              </div>
+            </div>
+
+            <div class=" wrong card text-white bg-danger mb-3" style="max-width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Wrong</h5>
+                <p class="card-text"><img src="img/wrong.gif" height="100%" width="100%"></p>
+              </div>
+            </div>
+
+          </div>
+          <div class="card-footer text-muted" id="score">
+              <button class="btn btn-success boot" onclick="getNewQuest()">Start Quiz </button>
+              <button type="button" class="booted btn btn-success">
+                Correct <span class="badge badge-light" id="correct_mark"></span>
+              </button>
+              <button type="button" class="booted btn btn-danger">
+                Wrong <span class="badge badge-light" id="wrong_mark"></span>
+              </button>
+              <button class="booted btn btn-sm btn-primary" onclick="getNewQuest()">Next >></button>
+          </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script>
+        const url = 'https://opentdb.com/api.php?amount=1&category=18&difficulty=medium&type=multiple&encode=url3986';
+
+        $(".no-ph-item").hide();
+        $(".ph-item").show();
+        $(".booted").hide();
+        $(".boot").show();
+        $(".correct").hide();
+        $(".wrong").hide();
+        
+        let correct;
+        let count = 0;
+        let correct_count = 0;
+        let incorrect_count = 0;
+
+        function getNewQuest() {
+          $(".no-ph-item").hide();
+          $(".ph-item").show();
+          $(".correct").hide();
+          $(".wrong").hide();
+          let quests = new Array();
+  
+          fetch(url).then((resp) => {
+            return resp.json();
+          }).then((data) => {
+            $(".ph-item").hide();
+            $(".no-ph-item").show();
+            $(".boot").hide();
+            $(".booted").show();
+            quests.push(data.results[0]);
+            count += 1;
+            correct = data.results[0].correct_answer;
+  
+            let options = data.results[0].incorrect_answers;
+            options.push(correct);
+            options.sort();
+            document.getElementById('questnum').innerHTML = 'Question '+count;
+            document.getElementById('question').innerHTML = decodeURIComponent(data.results[0].question);
+            document.getElementById('option1').value = decodeURI(decodeURIComponent(options[0]));
+            document.getElementById('option2').value = decodeURI(decodeURIComponent(options[1]));
+            document.getElementById('option3').value = decodeURI(decodeURIComponent(options[2]));
+            document.getElementById('option4').value = decodeURI(decodeURIComponent(options[3]));
+            document.getElementById('correct_mark').innerHTML = correct_count;
+            document.getElementById('wrong_mark').innerHTML = incorrect_count;
+          });
+        }
+  
+        document.getElementById('options').addEventListener('click', (e)=>{
+          let selected = e.srcElement.value;
+          if(selected === decodeURI(decodeURIComponent(correct))) {
+            correct_count += 1;
+            $(".wrong").hide();
+            $(".correct").show();
+            $(".no-ph-item").hide();
+          } else {
+            incorrect_count += 1;
+            $(".correct").hide();
+            $(".wrong").show();
+            $(".no-ph-item").hide();
+          }
+  
+          selected = '';
+          answer = '';
+        });
+  
+        function getOldQuest() {
+          
+        }
+        
+        //document.getElementById('input1');
+      </script>
+  </body>
+</html>
