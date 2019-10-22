@@ -10,7 +10,7 @@
 
     <link href="https://unpkg.com/placeholder-loading/dist/css/placeholder-loading.min.css" rel="stylesheet">
 
-    <title>JS Example</title>
+    <title>Quiz App</title>
 
   </head>
   <body>
@@ -23,8 +23,8 @@
     
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Basic Calc <span class="sr-only">(current)</span></a>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Basic Calc</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="adv.html">Advance Calc</a>
@@ -35,6 +35,9 @@
           <li class="nav-item">
             <a class="nav-link" href="register/course.html">ES6 Example</a>
           </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="quiz.html">Quiz App <span class="sr-only">(current)</span></a>
+          </li>
         </ul>
         <span class="navbar-text">
           Varun Ved
@@ -43,13 +46,14 @@
     </nav>
 
     <div class="container">
-        <h1 class="display-4">JavaScript Quiz - 101</h1>
+        <h1 class="display-4">Computers Quiz </h1>
         <div class="card text-center">
           <div class="card-header" id="questnum">
-            Question 1
+            Press Start Button to begin.
           </div>
           <div class="card-body">
-            <div class="ph-item">     
+              <button class="btn btn-lg btn-success boot" onclick="getNewQuest()">Start Quiz </button>
+            <div class="ph-item">   
               <div class="ph-col-12">
                 <div class="ph-picture"></div>
                 <div class="ph-row">
