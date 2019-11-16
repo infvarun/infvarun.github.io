@@ -329,6 +329,66 @@
                     
                 </div>
             </li>
+
+            <hr>
+            <li class="media">
+                <img src="img/jslogo60x60.jpg" class="mr-3" alt="JS">
+                <div class="media-body">
+                    <h5 class="mt-0 mb-1">What is Scope JavaScript?</h5>
+                    Scope is the accessibility of variables, functions, and objects in some particular part of your code during runtime. In other words, scope determines the visibility of variables and other resources in areas of your code.
+                    <br>
+                    So, the point in limiting the visibility of variables and not having everything available everywhere in your code.The scope is defined in mainly two ways:
+                    <ul>
+                        <li>Global Scope</li>
+                        <li>Local Scope</li>
+                    </ul>
+                    <br>
+                    <h6>Global Scope</h6>
+                    <pre>
+                        var greeting='Welcome to JS';
+                        (function() {
+                            console.log(greeting);
+                        })();
+                    </pre>
+                    
+                    <br>
+                    <h6>Local Scope</h6>
+                    <pre>
+                        (function() {
+                            var greeting = 'Welcome to JS';
+                              console.log(greeting); //Output: Welcome to JS
+                        })();
+                        console.log(greeting); //Error
+                    </pre>
+                    
+                </div>
+            </li>
+
+            <hr>
+            <li class="media">
+                <img src="img/jslogo60x60.jpg" class="mr-3" alt="JS">
+                <div class="media-body">
+                    <h5 class="mt-0 mb-1">What is Closure in JavaScript?</h5>
+                    A closure is the combination of a function and the lexical environment within which that function was declared.
+                    <br>
+                    A closure is an inner function that has access to the outer (enclosing) function’s variables — scope chain. The closure has three scope chains: it has access to its own scope (variables defined between its curly brackets), it has access to the outer function’s variables, and it has access to the global variables.
+                    <br>
+                    <pre>
+                        function User(name){
+                            var displayName = function(greeting){
+                             console.log(greeting+' '+name);
+                            }
+                            return displayName;
+                        }
+                        var myFunc = User('Varun');
+                        myFunc('Welcome '); //Output: Welcome Varun
+                        myFunc('Hello '); //output: Hello Varun
+                    </pre>
+                    <br>
+                    In this code, We have an outer function User() which returns an inner function as displayName(),
+                    The inner function will have access to the variables in the outer function scope, even after the outer function has returned.
+                </div>
+            </li>
         </ul>
     </div>
 
