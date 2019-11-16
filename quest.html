@@ -215,6 +215,120 @@
                     </ul>
                 </div>
             </li>
+
+            <hr>
+            <li class="media">
+                <img src="img/jslogo60x60.jpg" class="mr-3" alt="JS">
+                <div class="media-body">
+                    <h5 class="mt-0 mb-1">Constructor function</h5>
+                    Among Various way of creating objects in JavaScript. One of the ways to create objects in JavaScript is the constructor function. Consider the below constructor function:
+                    <pre>
+                        function Car(model,color){
+                            this.model = model,
+                            this.color = color,
+                         this.getDetails = function(){
+                              return this.model+' car is '+this.color;
+                            }
+                         }
+                         var obj1 = new Car('BMW','BLACK');
+                         var obj2 = new Car('Lamborgini','YELLOW');
+                         console.log(obj1.getDetails()); 
+                         console.log(obj2.getDetails());
+                    </pre>
+                </div>
+            </li>
+
+            <hr>
+            <li class="media">
+                <img src="img/jslogo60x60.jpg" class="mr-3" alt="JS">
+                <div class="media-body">
+                    <h5 class="mt-0 mb-1">JavaScript Prototype</h5>
+                    In previous topic, we are creating two objects: obj1, obj2 using a constructor. In JavaScript, every object has its own methods and properties. In our example, two objects have two instances of the constructor function getDetails() which is redundant.
+                    <br>
+                    Instead of using a copy of instances, we are going to use the <strong>prototype property</strong> of a constructor function.
+                    <br>
+                    <h6>Prototype</h6>
+                    When an object is created in JavaScript, JavaScript engine adds a __proto__ property to the newly created object which is called dunder proto or __proto__  of the constructor function.
+                    <pre>
+                        function Car(model,color){
+                            this.model = model,
+                            this.color = color
+                          }
+                          // Add function in prototype
+                          Car.prototype.getDetails = function(){
+                           return this.model+" car is "+this.color;
+                          }
+                          // create object
+                          var obj1 = new Car('Lamborgini','Yellow');
+                          console.log(obj1.getDetails());
+                    </pre>
+                </div>
+            </li>
+
+            <hr>
+            <li class="media">
+                <img src="img/jslogo60x60.jpg" class="mr-3" alt="JS">
+                <div class="media-body">
+                    <h5 class="mt-0 mb-1">JavaScript(ES6) Class</h5>
+                    JavaScript classes, introduced in ES6, are primarily syntactical sugar over JavaScript’s existing prototype-based inheritance. The class syntax does not introduce a new object-oriented inheritance model to JavaScript. In early ES5 using function expression.
+                    <br>
+                    <h6>Old Protype based inheritence</h6>
+                    <pre>
+                        function Bike(model,color) {
+                            this.model = model;
+                            this.color = color;
+                        }
+                         
+                        Bike.prototype.getInfo = function() {
+                            return this.color + ' ' + this.model+ ' bike';
+                        };
+                    </pre>
+                    <br>
+                    <h6>New ES6 Class feature</h6>
+                    Classes are in fact “special functions”, and just as you can define function expressions and function declarations, the class syntax has two components: class expressions and class declarations.
+                    <pre>
+                        class Bike{
+                            constructor(color, model) {
+                              this.color= color;
+                              this.model= model;
+                            }
+                        }
+                    </pre>
+                    <br>
+                    <h6>Benefits of Using class</h6>
+                    
+                    Convenient, self-contained syntax.
+                    A single, canonical way to emulate classes in JavaScript. Prior to ES6, there were several competing implementations in popular libraries.
+                    More familiar to people from a class-based language background.
+                </div>
+            </li>
+
+            <hr>
+            <li class="media">
+                <img src="img/jslogo60x60.jpg" class="mr-3" alt="JS">
+                <div class="media-body">
+                    <h5 class="mt-0 mb-1">What is an IIFE in JavaScript?</h5>
+                    IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined.
+                    <br>
+                    <h6>How to write?</h6>
+                    <pre>
+                        (function () {
+                            // logic here 
+                        })();
+                    </pre>
+                    The primary reason to use an IIFE is to obtain data privacy. Because JavaScript’s var scopes variables to their containing function, any variables declared within the IIFE cannot be accessed by the outside world.
+                    <br>
+                    <h6>Example</h6>
+                    <pre>
+                        (function () { 
+                            var msg = “hello”;
+                            console.log(msg);
+                        })();
+                        console.log(msg); //Error: msg is not defined
+                    </pre>
+                    
+                </div>
+            </li>
         </ul>
     </div>
 
