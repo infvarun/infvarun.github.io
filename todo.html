@@ -39,14 +39,16 @@
 
     <div class="card w-75">
       <div class="card-body">
-        <div style="margin-bottom: 10px;" id="list-items">
+        <div style="margin-bottom: 10px;">
           <div class="form-group">
             <input type="text" class="form-control" id="input1" placeholder="Enter to do item" autocomplete="false">
           </div>
 
           <button type="button" id="additembtn" class="btn btn-primary">+ Add to list</button>
         </div>
-
+        <div id="list-container">
+          <div id="list-items"></div>
+        </div>
       </div>
     </div>
 
@@ -55,6 +57,7 @@
 
 
   <script>
+    let items = [];
     // enter action
     document.getElementById('input1').addEventListener("keypress", (e) => {
       if (e.charCode === 13) {
@@ -69,27 +72,44 @@
     });
 
     //Function to append new item to DOM
-    function addItem() {
+    async function addItem() {
       var inp1 = document.getElementById('input1').value;
       console.log(inp1);
-
       if (inp1 !== '') {
-        const str = `<div style="margin-top: 10px;" class="alert alert-primary" role="alert">
-            ${inp1}
-            <button class="close" style="float: right; margin: 2px;">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <button class="close" style="float: right;margin: 2px;">
-              <span aria-hidden="true">&#9745;</span>
-            </button>
-          </div>`;
+        if (!items.includes(inp1)) {
+          items.push(inp1);
+        } else {
+          alert("Item already exist!");
+        }
 
-        let div = document.getElementById('list-items');
-
-        div.insertAdjacentHTML('beforeend', str);
+        console.log(items);
+        generateList();
         document.getElementById('input1').value = '';
       }
     }
+
+    function generateList() {
+      document.getElementById('list-container').innerHTML = '<div id="list-items"></div>';
+      items.forEach((val, index) => {
+        const str = `<div id="${index}" style="margin-top: 10px;" class="alert alert-primary" role="alert">
+            ${val}
+            <button class="close" style="float: right; margin: 2px;" onclick="removeItem(${index})">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>`;
+
+        document.getElementById('list-items').insertAdjacentHTML('beforeend', str);
+      });
+    }
+
+    //Remove Item
+    function removeItem(itemid) {
+      console.log(itemid);
+      let filtered = items.filter((value, index, arr) => index != itemid);
+      items = filtered;
+      generateList();
+    }
+
 
 
     //document.getElementById('input1');
